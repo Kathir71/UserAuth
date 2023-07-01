@@ -3,16 +3,19 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import {UserContext}from "../context/userContext";
 const Navbar = () => {
-    const {user , setUser} = useContext(UserContext);
-    const userDetails = JSON.parse(localStorage.getItem('details'));
-    console.log(userDetails);
+    let userDetails = null;
+    if ( localStorage.getItem('details'))
+    {
+        userDetails = JSON.parse(localStorage.getItem('details'));
+    }
     return(
     <section>
+        <div>hell</div>
         <nav>
                 <Link to = "/user/signup">Signup</Link>
                 <Link to ="/user/login">Login</Link>
         </nav>
-        <p>Hi {userDetails.userName}</p>
+        <p>Hi {userDetails ? "Hello" :"Please Login "}</p>
     </section>
     )
 }

@@ -18,6 +18,7 @@ const Login = () => {
                 userName:response.data[0].userName,
                 userEmail:response.data[0].userEmail
             }))
+            window.location = "http://localhost:3000/"
         }).catch((err) => {
             console.log(err.message);
         })
